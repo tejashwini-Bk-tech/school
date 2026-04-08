@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { pool } from "../config/db.js";
 
 function validEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
 }
 
 export async function register(req, res) {
@@ -15,7 +15,7 @@ export async function register(req, res) {
 
   const cleanEmail = String(email).trim().toLowerCase();
   if (!validEmail(cleanEmail)) {
-    return res.status(400).json({ success: false, message: "invalid email" });
+    return res.status(400).json({ success: false, message: "only gmail.com email is allowed" });
   }
 
   const [existing] = await pool.query("SELECT id FROM users WHERE email = ? LIMIT 1", [cleanEmail]);

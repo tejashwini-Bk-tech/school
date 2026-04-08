@@ -39,16 +39,13 @@ export async function listSchools(req, res) {
   const userLatitude = toNumber(req.query.latitude);
   const userLongitude = toNumber(req.query.longitude);
 
-  if (userLatitude === null || userLongitude === null) {
-    return res.status(400).json({
-      success: false,
-      message: "latitude and longitude query params are required",
-    });
-  }
-
   const [rows] = await pool.query(
     "SELECT id, name, address, latitude, longitude FROM schools ORDER BY id DESC"
   );
+
+  if (userLatitude === null || userLongitude === null) {
+    return res.json({ success: true, data: rows });
+  }
 
   const sorted = rows
     .map((school) => ({

@@ -10,13 +10,11 @@ import {
 
 const router = express.Router();
 
-// Assignment-required endpoints
-router.post("/addSchool", asyncHandler(addSchool));
-router.get("/listSchools", asyncHandler(listSchools));
+
 
 // Existing authenticated CRUD endpoints
-router.post("/api/schools", authMiddleware, asyncHandler(addSchool));
-router.get("/api/schools", authMiddleware, asyncHandler(listSchools));
+router.post("/api/addSchool", authMiddleware, asyncHandler(addSchool));
+router.get("/api/listSchools", authMiddleware, asyncHandler(listSchools));
 router.put("/api/schools/:id", authMiddleware, asyncHandler(updateSchool));
 router.delete("/api/schools/:id", authMiddleware, asyncHandler(deleteSchool));
 
