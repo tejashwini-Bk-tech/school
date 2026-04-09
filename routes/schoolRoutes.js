@@ -10,9 +10,10 @@ import {
 
 const router = express.Router();
 
+router.get("/", asyncHandler(async (_req, res) => {
+  res.json({ success: true, message: "Welcome to Educase API" });
+}));
 
-
-// Existing authenticated CRUD endpoints
 router.post("/addSchool", authMiddleware, asyncHandler(addSchool));
 router.get("/listSchools", authMiddleware, asyncHandler(listSchools));
 router.put("/schools/:id", authMiddleware, asyncHandler(updateSchool));
