@@ -25,7 +25,7 @@ app.get("/health", (_req, res) => {
 });
 
 app.use("/", schoolRoutes);
-app.use("/api/v1/auth", authRoutes);
+app.use("/api", authRoutes);
 app.use(notFoundHandler);
 app.use(errorHandler);
 

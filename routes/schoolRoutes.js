@@ -13,9 +13,9 @@ const router = express.Router();
 
 
 // Existing authenticated CRUD endpoints
-router.post("/api/addSchool", authMiddleware, asyncHandler(addSchool));
-router.get("/api/listSchools", authMiddleware, asyncHandler(listSchools));
-router.put("/api/schools/:id", authMiddleware, asyncHandler(updateSchool));
-router.delete("/api/schools/:id", authMiddleware, asyncHandler(deleteSchool));
+router.post("/addSchool", authMiddleware, asyncHandler(addSchool));
+router.get("/listSchools", authMiddleware, asyncHandler(listSchools));
+router.put("/schools/:id", authMiddleware, asyncHandler(updateSchool));
+router.delete("/schools/:id", authMiddleware, asyncHandler(deleteSchool));
 
 export default router;
