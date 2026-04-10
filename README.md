@@ -25,14 +25,14 @@ Server runs on:
 - http://localhost:5000
 
 ## Auth endpoints
-- POST /api/v1/auth/register
-- POST /api/v1/auth/login
+- POST /api/register
+- POST /api/login
 
 ## School endpoints (token required)
-- POST /api/schools
-- GET /api/schools
-- PUT /api/schools/:id
-- DELETE /api/schools/:id
+- POST /addschool
+- GET /listSchools
+- PUT /schools/:id
+- DELETE schools/:id
 
 ## Token use
 After login, send header:
@@ -42,7 +42,7 @@ Authorization: Bearer <token>
 Register body:
 {
   "name": "Tejas",
-  "email": "tejas@mail.com",
+  "email": "tejas@gmail.com",
   "password": "123456"
 }
 
